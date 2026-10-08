@@ -46,5 +46,28 @@
             </div>
         </section>
     </main>
+    <script>
+    document.getElementById('searchBtn').addEventListener('click', function() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const sections = document.querySelectorAll('.recommendation');
+        
+        sections.forEach(section => {
+            const title = section.querySelector('h2').innerText.toLowerCase();
+            // Show section if the search term matches the title
+            if (title.includes(input)) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', function() {
+        document.getElementById('searchInput').value = '';
+        document.querySelectorAll('.recommendation').forEach(section => {
+            section.style.display = 'block';
+        });
+    });
+</script>
 </body>
 </html>
